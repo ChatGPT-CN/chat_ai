@@ -1,6 +1,6 @@
-# Kimi-Clone 应用部署指南
+# AI聊天 应用部署指南
 
-本指南将引导您将 Kimi-Clone 应用部署到 Vercel 和您自己的服务器上。
+本指南将引导您将 AI聊天 应用部署到 Vercel 和您自己的服务器上。
 
 ## 1. 生产构建产物
 
@@ -56,11 +56,11 @@ Vercel 对 Next.js 项目提供了非常便捷的部署支持。
 ### 步骤：
 
 1.  **上传项目文件**：
-    *   将您的整个项目文件夹 `/home/ubuntu/kimi_clone` (或者至少包含上述“生产构建产物”中列出的关键文件和文件夹，除了 `node_modules`) 上传到您服务器上的目标目录，例如 `/var/www/kimi-clone`。
+    *   将您的整个项目文件夹 `/home/ubuntu/kimi_clone` (或者至少包含上述“生产构建产物”中列出的关键文件和文件夹，除了 `node_modules`) 上传到您服务器上的目标目录，例如 `/var/www/AI聊天`。
 
 2.  **安装生产依赖**：
     *   通过 SSH 连接到您的服务器。
-    *   进入项目目录：`cd /var/www/kimi-clone`
+    *   进入项目目录：`cd /var/www/AI聊天`
     *   安装生产依赖：`pnpm install --prod`
       *   `--prod` 标志确保只安装 `dependencies` 中列出的包，跳过 `devDependencies`。
 
@@ -75,19 +75,19 @@ Vercel 对 Next.js 项目提供了非常便捷的部署支持。
 5.  **使用进程管理器 (推荐)**：
     *   为了确保应用在服务器重启或意外崩溃后能自动重启，并方便管理，建议使用进程管理器，如 PM2。
     *   安装 PM2 (如果尚未安装)：`sudo npm install -g pm2`
-    *   使用 PM2 启动应用：`pm2 start pnpm --name "kimi-clone" -- start`
+    *   使用 PM2 启动应用：`pm2 start pnpm --name "AI聊天" -- start`
     *   常用 PM2 命令：
         *   `pm2 list`: 查看所有正在运行的应用
-        *   `pm2 logs kimi-clone`: 查看 kimi-clone 应用的日志
-        *   `pm2 stop kimi-clone`: 停止应用
-        *   `pm2 restart kimi-clone`: 重启应用
-        *   `pm2 delete kimi-clone`: 删除应用
+        *   `pm2 logs AI聊天`: 查看 AI聊天 应用的日志
+        *   `pm2 stop AI聊天`: 停止应用
+        *   `pm2 restart AI聊天`: 重启应用
+        *   `pm2 delete AI聊天`: 删除应用
         *   `pm2 startup`: 生成启动脚本，使 PM2 在服务器启动时自动运行
         *   `pm2 save`: 保存当前 PM2 进程列表
 
 6.  **配置反向代理 (推荐)**：
     *   为了使用标准的 HTTP (80) 和 HTTPS (443) 端口，以及方便配置 SSL/TLS 证书，建议使用反向代理服务器，如 Nginx 或 Apache。
-    *   **Nginx 示例配置** (`/etc/nginx/sites-available/kimi-clone.conf`)：
+    *   **Nginx 示例配置** (`/etc/nginx/sites-available/AI聊天.conf`)：
         ```nginx
         server {
             listen 80;
@@ -103,7 +103,7 @@ Vercel 对 Next.js 项目提供了非常便捷的部署支持。
             }
         }
         ```
-    *   创建软链接：`sudo ln -s /etc/nginx/sites-available/kimi-clone.conf /etc/nginx/sites-enabled/`
+    *   创建软链接：`sudo ln -s /etc/nginx/sites-available/AI聊天.conf /etc/nginx/sites-enabled/`
     *   测试 Nginx 配置：`sudo nginx -t`
     *   重载 Nginx：`sudo systemctl reload nginx`
     *   **配置 SSL/TLS**：强烈建议使用 Let's Encrypt (通过 Certbot 工具) 为您的域名配置免费的 SSL 证书，以启用 HTTPS。
