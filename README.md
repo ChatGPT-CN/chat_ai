@@ -1,4 +1,4 @@
-# Kimi-Clone Web Application
+# Chat-AI Web Application
 
 This project is a web application similar to Kimi.moonshot.cn, built with Next.js. It supports multiple AI provider integrations, custom API configurations, and a multilingual user interface.
 
