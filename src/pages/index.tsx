@@ -248,7 +248,7 @@ export default function ChatPage() {
   return (
     <>
       <Head>
-        <title>{`${currentSessionName} - Kimi Clone`}</title>
+        <title>{`${currentSessionName} - BeeAI App`}</title>
       </Head>
       <div className="flex h-screen antialiased text-gray-800 bg-slate-100">
         <div className="flex flex-row h-full w-full overflow-x-hidden">
@@ -258,7 +258,7 @@ export default function ChatPage() {
               <div className="flex items-center justify-center rounded-xl text-teal-600 bg-teal-100 h-10 w-10">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               </div>
-              <div className="ml-3 font-semibold text-2xl text-teal-700">KimiClone</div>
+              <div className="ml-3 font-semibold text-2xl text-teal-700">BeeAI App</div>
             </div>
             <button
               onClick={createNewSession}
